@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
+from .forms import RSVPForm
 
 wedding = Blueprint('wedding', __name__, template_folder='templates')
 
@@ -10,6 +11,7 @@ def index():
 def details():
     return render_template('wedding/details.html')
 
-@wedding.route('/rsvp')
+@wedding.route('/rsvp', methods=['GET', 'POST'])
 def respond():
-    return render_template('wedding/rsvp.html')
+    form = RSVPForm(request.form)
+    return render_template('wedding/rsvp.html', form=form)
