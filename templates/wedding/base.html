@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Beth and Daven!</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/static/styles/wedding.css">
+    </head>
+    <body class="{% block body_class %}{{body_class}}{% endblock %}">
+        <div id="main">
+            <div id="layout">
+                <header>
+                    <div class="title-block">
+                        <h1 id="site-title">
+                            <a href="/wedding/">
+                                <img src="/static/images/wedding/BethDaven.svg" alt="Beth and Daven" width=535 height=125 />
+                            </a>
+                        </h1>
+                        <h2 class="date">October 11, 2014 &middot; Cary, NC</h2>
+                    </div>
+                    <ul id="nav">
+                      <li><a href="/wedding/">But why?</a></li>
+                      <li><a href="details">Details</a></li>
+                      <li><a href="rsvp">RSVP</a></li>
+                    </ul>
+                </header>
+                <div id="content">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+            <div id="main-footer"></div>
+        </div>
+        <footer id="footer" class="row">
+            <p>Site designed by <a href="/">the groom</a> and inspired by the work of <a href="http://www.iconofgraphics.com/Laszlo-Moholy-Nagy/">László Moholy-Nagy</a>.
+        </footer>
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>
