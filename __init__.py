@@ -7,11 +7,14 @@ wedding = Blueprint('wedding', __name__, template_folder='templates')
 def index():
     return render_template('wedding/index.html')
 
-@wedding.route('/details')
+@wedding.route('/details/')
 def details():
     return render_template('wedding/details.html')
 
-@wedding.route('/rsvp', methods=['GET', 'POST'])
-def respond():
+
+@wedding.route('/rsvp/', methods=['GET', 'POST'])
+def rsvp():
     form = RSVPForm(request.form)
+    if request.method == "POST":
+        print(request.form)
     return render_template('wedding/rsvp.html', form=form)

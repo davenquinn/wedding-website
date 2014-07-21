@@ -4,7 +4,7 @@
 {% block content %}
 <p>Please send us the RSVP card included in your invitation or fill out this form by August 31st.</p>
 
-<form method="post">
+<form method="POST" action="/wedding/rsvp/">
     {{ form.csrf_token }}
     <dl>
         {{ render_field(form.name) }}
@@ -12,7 +12,7 @@
         {{ render_field(form.number) }}
         {{ render_field(form.message) }}
     </dl>
-    <p> {{ form.submit }}</p>
+    <p>{{ form.submit }}</p>
 </form>
 
 {% endblock %}
