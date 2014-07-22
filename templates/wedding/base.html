@@ -6,8 +6,9 @@
         <title>Beth and Daven!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Noticia+Text:400,700,400italic|Montserrat:400,700|Raleway:400,300,500' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/static/styles/wedding.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
     <body class="{% block body_class %}{{body_class}}{% endblock %}">
         <div id="main">
@@ -16,15 +17,14 @@
                     <div class="title-block">
                         <h1 id="site-title">
                             <a href="/wedding/">
-                                <img src="/static/images/wedding/BethDaven.svg" alt="Beth and Daven" width=535 height=125 />
+                                {% include "wedding/logo.svg" %}
                             </a>
                         </h1>
-                        <h2 class="date">October 11, 2014 &middot; Cary, NC</h2>
                     </div>
                     <ul id="nav">
-                      <li><a href="/wedding/">But why?</a></li>
-                      <li><a href="details">Details</a></li>
-                      <li><a href="rsvp">RSVP</a></li>
+                      <li><a href="/wedding/">Context</a></li>
+                      <li><a href="/wedding/details/">Details</a></li>
+                      <li><a href="/wedding/rsvp/">RSVP</a></li>
                     </ul>
                 </header>
                 <div id="content">
@@ -34,9 +34,11 @@
             <div id="main-footer"></div>
         </div>
         <footer id="footer" class="row">
-            <p>Site designed by <a href="/">the groom</a> and inspired by the work of <a href="http://www.iconofgraphics.com/Laszlo-Moholy-Nagy/">László Moholy-Nagy</a>.
+            <p>Site designed by with love by <a href="/">the groom</a>.
         </footer>
+        <div id=background-container><div></div></div>
         {% block scripts %}
+        <script src="/static/scripts/wedding.min.js"></script>
         {% endblock %}
     </body>
 </html>

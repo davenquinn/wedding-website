@@ -11,10 +11,12 @@ def index():
 def details():
     return render_template('wedding/details.html')
 
-
 @wedding.route('/rsvp/', methods=['GET', 'POST'])
 def rsvp():
     form = RSVPForm(request.form)
     if request.method == "POST":
-        print(request.form)
+        if form.validate():
+            return "<p class='success'>Congratulations, you've successfully RSVPd</p>"
+        else:
+            return render_template('wedding/rsvp_form.html', form=form)
     return render_template('wedding/rsvp.html', form=form)
