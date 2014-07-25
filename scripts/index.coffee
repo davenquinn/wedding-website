@@ -1,4 +1,12 @@
 $ = window.$
+createMap = require "./map"
+
+$.fn.createMap = ->
+    this.show()
+    createMap(this)
+    return this
+
+$(".map").each(-> $(@).createMap())
 
 $("body").on "submit", "form", (e) ->
     e.preventDefault()

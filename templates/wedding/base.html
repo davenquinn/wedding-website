@@ -1,3 +1,5 @@
+{% from "wedding/macros.html" import nav_link %}
+
 <!doctype html>
 <html>
     <head>
@@ -5,10 +7,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Beth and Daven!</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Noticia+Text:400,700,400italic|Montserrat:400,700|Raleway:400,300,500' rel='stylesheet' type='text/css'>
+        <meta id="view" name="viewport" content="width=device-width" />
+        <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700,400italic|Raleway:400,300,500' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/static/styles/wedding.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ config.GOOGLE_MAPS_KEY }}&sensor=false"></script>
     </head>
     <body class="{% block body_class %}{{body_class}}{% endblock %}">
         <div id="main">
@@ -21,10 +24,15 @@
                             </a>
                         </h1>
                     </div>
+                    <h2 class=subtitle>
+                        <span class=date>Saturday, October 11, 2014</span>
+                        <span class=sep> &middot; </span>
+                        <span class=location>Cary, North Carolina</span>
+                    </h2>
                     <ul id="nav">
-                      <li><a href="/wedding/">Context</a></li>
-                      <li><a href="/wedding/details/">Details</a></li>
-                      <li><a href="/wedding/rsvp/">RSVP</a></li>
+                      {{ nav_link("wedding.story", "Story") }}
+                      {{ nav_link("wedding.details","Details") }}
+                      {{ nav_link("wedding.rsvp","RSVP") }}
                     </ul>
                 </header>
                 <div id="content">
@@ -36,9 +44,9 @@
         <footer id="footer" class="row">
             <p>Site designed by with love by <a href="/">the groom</a>.
         </footer>
-        <div id=background-container><div></div></div>
         {% block scripts %}
         <script src="/static/scripts/wedding.min.js"></script>
         {% endblock %}
+        {% include "analytics.html" %}
     </body>
 </html>
