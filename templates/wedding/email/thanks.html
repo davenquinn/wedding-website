@@ -1,0 +1,18 @@
+<p>Dear {{ form.name }},</p>
+
+<p>Thanks for responding to our invitation to the wedding! You said {{ form.number}} of your party were attending. {% if attending %}We'll see you in October to celebrate!{% else %}We're sorry you can't make it! You'll have to be our ambassadors to the rest of the world.{% endif %}</p>
+
+<p>Feel free to return to the wedding website at <a target=_blank href="http://davenquinn.com/wedding/">davenquinn.com/wedding</a> for answers to any questions you might have. If you're still searching (or just want to say hello!) feel free to email us at <a target=_blank href="mailto:wedding@davenquinn.com">wedding@davenquinn.com</a>!</p>
+
+<p>Yours,<br />
+Beth and Daven</p>
+
+<p><em>October 11, 2014 &middot; Cary, North Carolina</em></p>
+
+{% if form.message %}
+<hr>
+<p>Below is the message that you sent us:</p>
+<blockquote>
+{{ form.message }}
+</blockquote>
+{% endif %}

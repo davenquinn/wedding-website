@@ -1,0 +1,18 @@
+Dear {{ form.name }},
+
+Thanks for responding to our invitation to the wedding! You said {{ form.number}} of your party were attending. {% if attending %}We'll see you in October!{% else %}We're sorry you can't make it! But we know you'll be celebrating with us from afar.{% endif %}
+
+Feel free to return to the wedding website at [ davenquinn.com/wedding ] for answers to any questions you might have. If you're still searching (or just want to say hello!) feel free to email us at [ wedding@davenquinn.com ].
+
+Yours,
+Beth and Daven
+
+    October 11, 2014
+    Cary, North Carolina
+
+
+{% if form.message %}
+Below is the message that you sent us:
+------------------------
+{{ form.message }}
+{% endif %}
