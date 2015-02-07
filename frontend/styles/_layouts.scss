@@ -1,0 +1,26 @@
+
+$layouts: (
+  content: (
+    med: full,
+    large: 9 of 12
+  ),
+  sidebar: (
+    med: full,
+    large: 3 of 12
+  ),
+);
+
+@mixin get-layout($args, $map: $layouts) {
+  @include span(map-fetch($map, $args));
+}
+
+@function get-layout($args, $map: $layouts) {
+  @return span(map-fetch($map, $args));
+}
+
+// .content {
+//   @include get-layout(content med);
+//   @include breakpoint(1200px) {
+//     @include get-layout(content large);
+//   }
+// }

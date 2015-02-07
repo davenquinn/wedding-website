@@ -1,0 +1,88 @@
+$input-margin: 0.5rem;
+
+@mixin admonition($color: #555) {
+    padding: 2px 5px;
+    border-left: 3px solid $color;
+    color: darken($color,20%);
+}
+
+ul.flashes {
+    padding-left: 0;
+}
+
+ul.flashes, form {
+    list-style: none;
+    li.failure, li.error, p.error {
+        @include admonition($medium-purple);
+    }
+    li.success {
+        @include admonition($medium-green);
+    }
+}
+
+form {
+    @include padded;
+    div.form-group {
+        margin-bottom: $input-margin;
+        p {
+            margin-top: 0.1em;
+            margin-bottom: 0.3em;
+            font-size: 0.8em;
+            &.description {
+                color: $medium-purple;
+            }
+        }
+    }
+    label {
+        display: block;
+        font-family: $sans-serif;
+    }
+    .factoid {
+        display: none;
+    }
+    div.number {
+        margin-top: 1em;
+        label {
+            display: inline-block;
+            margin-right: 1em;
+        }
+        input#number {
+            width: 3em;
+            min-width: 3em;
+            text-align: center;
+        }
+    }
+    ul {
+        list-style: none;
+    }
+
+}
+
+input:not([type=submit]):not([type=file]), textarea {
+    font-family: $sans-serif;
+    font-size: 1.1em;
+    border: 3px solid $light-green;
+    /*box-shadow:
+      inset 0 0 8px  transparentize($light-green,0.2),
+            0 0 16px rgba(0,0,0,0.1);*/
+    padding: 5px 10px;
+    background: lighten($light-green, 15%);
+    margin: 0;
+}
+
+input[type=submit]{
+    box-shadow:
+      inset 0 0 8px  transparentize($light-purple,0.2);
+    padding: 0.2em 2em;
+    background: $light-purple;
+    color: $medium-purple;
+    border-style: none;
+    cursor: pointer;
+    @include button($medium-purple);
+}
+
+textarea {
+    width: 100%;
+    font-family: $serif;
+    height: 6em;
+}

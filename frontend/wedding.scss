@@ -1,0 +1,395 @@
+@import "breakpoint";
+@import "susy";
+@import "compass/utilities/general/clearfix";
+@import "compass/layout/sticky-footer";
+
+// Colors
+$dark-green:       #8ebc9b;
+//                 #93cda6;
+$meddark-green:    #92cd8e;
+$medium-green:     #9ad093;
+//                 #a9d6a2;
+$light-green:      #aed9a8;
+$dark-purple:      #5d3393;
+$medium-purple:    #7d6aaa;
+//                 #8067ad;
+//                 #8c7fb2;
+$lighter-purple:   #9b8ac1;
+//                 #9a8cbd;
+//                 #b4a9d2;
+$light-purple:     #b3aacd;
+//                 #8ca3ce;
+$steel-blue:       #7892c5;
+//                 #799ecc;
+//                 #87badb;
+$light-blue:       #72c4e6;
+//                 #6ec0e6;
+//                 #78cfed;
+//                 #89d6f0;
+//                 #90d5e9;
+//                 #89cde4;
+$turquoise:        #93d9f2;
+//                 #a2ddf2;
+//                 #b4d7eb;
+//                 #b7e3f1;
+$blue-white:       #b8e4fa;
+//                 #bde6fb;
+//                 #bce5f2;
+//                 #b5d7f2;
+//                 #badb98;
+//                 #bfdd9d;
+//                 #a2d398;
+
+
+
+@mixin cspan($color) {
+    display: inline-block;
+    padding: 0 0.2em;
+    background-color: lighten($color,5%);
+    color: darken($color, 40%);
+}
+
+.blue {@include cspan($blue-white);}
+.green {@include cspan($light-green);}
+.purple {@include cspan($light-purple);}
+
+
+
+$left: 12rem;
+$width: 36rem;
+$margin: 2rem;
+
+$sans-serif: "Raleway", "Helvetica", Arial, sans-serif;
+$serif: 'Noticia Text', serif;
+
+$medium: $width+4*$margin;
+$big: 1200px;
+
+$imwidth: 30rem;
+$title-margin: -70px;
+
+@mixin padded {
+    @include breakpoint(max-width $medium) {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+@mixin button($c) {
+    text-align: center;
+    font-size: 1.2em;
+    font-family: $sans-serif;
+    display: inline-block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-decoration: none;
+    color: $c;
+    &:visited {
+        color: darken($c, 10%);
+    }
+    &:hover {
+        background-color: $c;
+        color: white;
+    }
+}
+
+@import "styles/base";
+@import "styles/forms";
+
+* {
+    box-sizing: border-box;
+    font-family: $serif;
+}
+
+#main, #footer {
+    max-width: 100%;
+}
+
+#main {
+    padding-top: 1rem;
+    margin-top: 0;
+}
+
+// Footer
+
+@include sticky-footer(2em, "#main", "#main-footer", "#footer");
+#footer {
+    height: 1.5em
+}
+
+body{
+    position: relative;
+}
+html, body {
+    font-size: 18px;
+    @include breakpoint(max-width 398px) {
+        font-size: 15px;
+    }
+    line-height: 1.5;
+    margin: 0;
+}
+
+#{headings()} {
+    font-family: $sans-serif;
+    font-weight: 500;
+    line-height: 1em;
+    margin-top: 1.5em;
+    @include padded;
+}
+
+p {
+    @include padded;
+    text-align: justify;
+}
+
+#logo {
+    max-width: 100%;
+    height: auto;
+    g.heart>path {
+        fill: #eeeeee;
+    }
+    .letters>path {
+        fill: #aaa;
+    }
+    &:hover {
+        g.heart>path {
+            fill: $light-purple;
+        }
+        g.letters>path {
+            fill: white;
+        }
+    }
+}
+
+//Header
+
+#site-title {
+    padding-right: 0;
+    margin-top: 0;
+    margin-left: -1em;
+    text-align: right;
+    img {
+        z-index: 10;
+    }
+}
+
+.title-block {
+    max-width: 100%;
+    position: relative;
+    width: $imwidth;
+    margin-bottom: -2.2em + 0.8em;
+}
+
+h2.subtitle {
+    font-style: italic;
+    text-align: right;
+    color: #555555;
+    font-family: $serif;
+    margin-bottom: 1.6em + 0.7em;
+}
+
+@include breakpoint(max-width $medium) {
+    .title-block {
+        margin-bottom: -2.2em;
+    }
+    h2.subtitle {
+        margin-bottom: 1.6em;
+        .sep {
+            display: none;
+        }
+        span {
+            display: block;
+        }
+    }
+}
+
+ul#nav {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    li.active a {
+        background-color: lighten($light-purple,10%);
+        color: white !important;
+    }
+    li a {
+        width: 100%;
+        @include button($light-blue);
+        //&:visited {color: $steel-blue;}
+    }
+    @include breakpoint(max-width $big) {
+        margin-right: -4%;
+        li {
+            width: 32%;
+            display: inline-block;
+        }
+        margin-bottom: 2em;
+    }
+}
+
+// Content
+
+
+h3 {
+    text-align: left;
+    span {
+        color: $medium-green;
+        font-family: inherit;
+    }
+}
+
+#content {
+    @include container(12);
+    position: relative;
+    h2:first-child {
+        margin-top: 0;
+    }
+    margin-bottom: 2rem;
+}
+
+p.center {
+    text-align: center;
+}
+
+p.drop {
+    &:first-letter {
+        float: left;
+        color: #999;
+        font-size: 4.5em;
+        line-height: 0.9em;
+        padding: 0 3px 2px;
+        margin-right: 3px;
+        font-family: "Georgia", $serif;
+    }
+}
+
+a.button {
+    @include button($medium-purple);
+    padding: 0.2em 0.5em;
+    background: $light-purple;
+}
+
+$map-height: 10rem;
+$color: lighten($light-blue,20%);
+$c2: darken($light-blue,30%);
+
+div.location {
+    width: 100%;
+    display: table;
+    height: $map-height;
+    &>a.left {
+        text-decoration: none;
+        display: table-cell;
+        height: $map-height;
+        vertical-align: middle;
+        width: 12em;
+        background: $color;
+        overflow-x: visible;
+        margin-right: 0;
+        position: relative;
+        white-space: nowrap;
+        z-index: 10;
+        &:hover {
+            background: $light-blue;
+            cursor: pointer;
+            p {
+                color: white;
+            }
+            &:after {
+                border-left-color: $light-blue;
+            }
+        }
+        p {
+            font-family: $sans-serif;
+            color: $light-blue;
+            font-weight: 600;
+            padding-left: 1em;
+            line-height: 1.8em;
+            z-index: 20;
+            pointer-events: none;
+        }
+        &:after {
+            pointer-events: none;
+            content: ' ';
+            height: 0;
+            position: absolute;
+            bottom: 0;
+            z-index: -1;
+            width: 0;
+            right: -$map-height;
+            border: $map-height/2 solid transparent;
+            border-left-color: $color;
+        }
+    }
+    div.map {
+        img {
+            max-width: none;
+        }
+        height: $map-height;
+    }
+}
+
+
+#footer {
+    font-size: 0.8em;
+    color: #bbb;
+    a {
+        text-decoration: none;
+        font-weight: 600;
+        color: #999;
+        &:visited {
+            color: inherit;
+        }
+    }
+
+}
+
+.registries {
+    a {
+        display: block;
+        color: transparent;
+        width: 290px;
+        height: 70px;
+        margin: 0.5em auto;
+        background-repeat: no-repeat;
+        &:hover {
+            background-position: right center;
+        }
+    }
+    .amazon {
+        background-image: url("/static/images/wedding/registry.amazon.png")
+    }
+    .bedbathbeyond {
+        background-image: url("/static/images/wedding/registry.bedbathbeyond.png")
+    }
+}
+
+// Images
+
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 5px solid $turquoise;
+    @include breakpoint(max-width $medium) {
+        border-left: 0px !important;
+        border-right: 0px !important;
+    }
+}
+
+@mixin floated($n){
+    @include breakpoint($medium) {
+        @include span($n of 12);
+    }
+}
+
+div.image {
+    &.left {
+        float: left;
+        margin-right: 1em
+    }
+    &.right {
+        float: right;
+        margin-left: 1em;
+    }
+}

@@ -1,0 +1,60 @@
+$susy: (
+  columns: 12,
+  gutters: 1/8,
+);
+
+
+
+#main, #footer {
+    @include breakpoint($medium) {
+        margin-left: $margin;
+        width: $width;
+    }
+    @include breakpoint($big) {
+        margin-left: $left;
+    }
+}
+
+
+
+@include breakpoint($medium) {
+    //html {overflow: hidden;}
+    body {
+        overflow: scroll;
+    }
+    html {
+         background: url("/static/images/wedding/background.png") no-repeat;
+         background-position: $medium - $margin 0;
+         background-size:  90vh 100vh;
+         background-attachment: fixed;
+    }
+    #site-title {
+        margin-left: $title-margin;
+    }
+    .title-block {
+        max-width: none;
+    }
+}
+
+@include breakpoint($big) {
+    html {
+        background-position: 1.1*($left+$width+$margin) 0;
+    }
+    #site-title {
+        text-align: left !important;
+    }
+
+    ul#nav {
+        position: absolute;
+        left: 1rem;
+        width: $left - $margin;
+        margin: 0;
+        padding-left: 0;
+        li a {
+            text-align: left;
+            display: block;
+            margin-right: 1em;
+            padding: 8px 15px;
+        }
+    }
+}
