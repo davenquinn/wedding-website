@@ -12,5 +12,6 @@ styles: frontend/wedding.scss frontend/styles/*.scss
 	compass compile -e production
 
 install:
-	npm install -g browserify coffeeify
+	npm install -g browserify
+	npm install coffeeify
 	gem install compass susy breakpoint
