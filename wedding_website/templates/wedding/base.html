@@ -47,6 +47,6 @@
         {% block scripts %}
         <script src="{{url_for('wedding.static',filename='wedding.js')}}"></script>
         {% endblock %}
-        {% include "analytics.html" %}
+        {% include "analytics.html" ignore missing %}
     </body>
 </html>
