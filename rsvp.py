@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from flask import render_template
 from pathlib import Path
 from datetime import datetime
