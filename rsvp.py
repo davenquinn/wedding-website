@@ -5,9 +5,12 @@ from functools import partial
 from flask.ext.mail import Mail, Message
 
 def send_mail(app, form):
-    debug = app.config["DEBUG"]
-    test_recipients = ['test@davenquinn.com']
-
+    """
+    Send email confirmation of an RSVP response,
+    both to myself and to the guest. If DEBUG
+    is enabled, send responses to a testing
+    address instead.
+    """
     mail = Mail(app)
 
     msg = Message("Thanks for your RSVP!",
@@ -15,11 +18,11 @@ def send_mail(app, form):
         reply_to="Daven and Beth <wedding@davenquinn.com>",
         extra_headers={"From":"Daven and Beth via davenquinn.com <mail@davenquinn.com>"})
 
-    if debug:
-        msg.recipients = test_recipients
+    if app.config["DEBUG"]:
+        msg.recipients = ['test@davenquinn.com']
     else:
         msg.recipients = [form["email"]]
-        msg.bcc = test_recipients+["wedding@davenquinn.com"]
+        msg.bcc = ["wedding@davenquinn.com"]
 
     _ = partial(render_template,
         form=form,
@@ -29,23 +32,34 @@ def send_mail(app, form):
     msg.html = _("wedding/email/thanks.html")
     mail.send(msg)
 
-def complete_rsvp(app, form):
-    send_mail(app, form)
+def save_file(app, form):
+    """
+    Save a file containing the response (if we have
+    a STORAGE_BASE directory path defined in our
+    configuration) because email is unreliable and
+    I'm likely to make mistakes.
+    """
+    path = app.config.get("STORAGE_BASE", None)
+    if path is None: return
 
     time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     fn = "{0} {1}.txt".format(form["name"],time)
-    directory = Path(app.config["STORAGE_BASE"])/"wedding-responses"
+    directory = Path(path)/"wedding-responses"
 
     try:
         directory.mkdir()
     except FileExistsError:
         pass
-    p = directory/fn
 
-    with p.open("w") as f:
+    with (directory/fn).open("w") as f:
         w = lambda s: print(s,file=f)
         w("Name: "+form["name"])
         w("Email:"+form["email"])
         w("No. attending: "+str(form["number"]))
         w("Message:")
         w(form["message"])
+
+def complete_rsvp(app, form):
+    save_file(app, form)
+    send_mail(app, form)
+
