@@ -15,9 +15,9 @@ class TestConfig(object):
     GOOGLE_MAPS_KEY = None
 
     # Setup values for Flask-Mail
-    MAIL_SERVER='smtp.gmail.com'
-    MAIL_PORT=465
-    MAIL_USE_SSL=True
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 465
+    MAIL_USE_SSL = True
     MAIL_USERNAME = 'you@gmail.com'
     MAIL_PASSWORD = '*************'
     DEFAULT_MAIL_SENDER = MAIL_USERNAME
