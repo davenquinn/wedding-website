@@ -1,7 +1,6 @@
 {% extends "wedding/base.html" %}
 
-
-{% set path = "/static/images/wedding/photos" %}
+{% set path = url_for('wedding.static',filename='images/photos') %}
 {% block content %}
 
 <p class=drop>Our journey together began in September 2007, just a few weeks into our freshman year at <span class=blue>UNC Chapel Hill</span>. In the course of exploring how to use their Monday evenings in this new college setting, both of them ended up in the same swing-dancing class.

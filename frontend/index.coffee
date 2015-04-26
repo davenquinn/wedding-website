@@ -1,5 +1,5 @@
 $ = window.$
-createMap = require "./map"
+createMap = require "./map.coffee"
 
 $.fn.createMap = ->
     this.show()

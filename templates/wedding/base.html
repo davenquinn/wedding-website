@@ -1,5 +1,4 @@
 {% from "wedding/macros.html" import nav_link %}
-
 <!doctype html>
 <html>
     <head>
@@ -9,7 +8,7 @@
         <meta name="description" content="">
         <meta id="view" name="viewport" content="width=device-width" />
         <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700,400italic|Raleway:400,300,500' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="/static/styles/wedding.css">
+        <link rel="stylesheet" href="{{url_for('wedding.static',filename='wedding.css')}}">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ config.GOOGLE_MAPS_KEY }}&sensor=false"></script>
     </head>
@@ -45,7 +44,7 @@
             <p>Site designed by with love by <a href="/">the groom</a>.
         </footer>
         {% block scripts %}
-        <script src="/static/scripts/wedding.min.js"></script>
+        <script src="{{url_for('wedding.static',filename='wedding.js')}}"></script>
         {% endblock %}
         {% include "analytics.html" %}
     </body>

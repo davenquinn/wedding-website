@@ -2,7 +2,9 @@ from flask import Blueprint, render_template, request, current_app, flash
 from .forms import RSVPForm
 from .rsvp import complete_rsvp
 
-wedding = Blueprint('wedding', __name__, template_folder='templates')
+wedding = Blueprint('wedding', __name__,
+        template_folder='templates',
+        static_folder='static')
 
 @wedding.route('/')
 def index():
