@@ -5,6 +5,5 @@ require 'compass/import-once/activate'
 require 'susy'
 require 'breakpoint'
 
-css_dir = "static"
+css_dir = "wedding_website/static"
 sass_dir = "frontend"
-images_dir = "static/images"

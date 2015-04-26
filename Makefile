@@ -6,7 +6,7 @@
 all: scripts styles
 
 scripts: frontend/*.coffee
-	browserify -t coffeeify frontend/index.coffee > static/wedding.js
+	browserify -t coffeeify frontend/index.coffee > wedding_website/static/wedding.js
 
 styles: frontend/wedding.scss frontend/styles/*.scss
 	compass compile -e production
