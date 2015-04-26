@@ -28,9 +28,14 @@ class TestConfig(object):
     # for weird email issues).
     STORAGE_BASE = None
 
-app = Flask(__name__)
+app = Flask(__name__,
+    # Hack to ensure that static url path
+    # doesn't conflict with blueprint
+    # mounted at application root
+    static_url_path="/app-static")
+
 app.config.from_object(TestConfig)
-app.register_blueprint(wedding, url_prefix="/")
+app.register_blueprint(wedding)
 
 if __name__ == "__main__":
     app.run(debug=True)
