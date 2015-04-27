@@ -1,6 +1,3 @@
-wedding_website/static/wedding.css
-wedding_website/static/wedding.js
-
 node_modules/
 .sass-cache/
 *.egg-info/
