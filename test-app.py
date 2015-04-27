@@ -14,6 +14,9 @@ class TestConfig(object):
     # usage, set a key! Not required though...
     GOOGLE_MAPS_KEY = None
 
+    # Required for CSRF in the email form
+    SECRET_KEY = "probably should be a hash"
+
     # Setup values for Flask-Mail
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 465
@@ -34,6 +37,7 @@ app = Flask(__name__,
     # mounted at application root
     static_url_path="/app-static")
 
+# Register the blueprint at root
 app.config.from_object(TestConfig)
 app.register_blueprint(wedding)
 
