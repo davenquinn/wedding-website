@@ -19,7 +19,7 @@
                 <header>
                     <div class="title-block">
                         <h1 id="site-title">
-                            <a href="/wedding/">
+                          <a href="{{ url_for('.index') }}">
                                 {% include "wedding/logo.svg" %}
                             </a>
                         </h1>
@@ -30,9 +30,9 @@
                         <span class=location>Cary, North Carolina</span>
                     </h2>
                     <ul id="nav">
-                      {{ nav_link("wedding.story", "Story") }}
-                      {{ nav_link("wedding.details","Details") }}
-                      {{ nav_link("wedding.rsvp","RSVP") }}
+                      {{ nav_link(".story", "Story") }}
+                      {{ nav_link(".details","Details") }}
+                      {{ nav_link(".rsvp","RSVP") }}
                     </ul>
                 </header>
                 <div id="content">
@@ -45,7 +45,7 @@
             <p>Site designed by with love by <a href="/">the groom</a>.
         </footer>
         {% block scripts %}
-        <script src="{{url_for('wedding.static',filename='wedding.js')}}"></script>
+        <script src="{{url_for('.static',filename='wedding.js')}}"></script>
         {% endblock %}
         {% include "analytics.html" ignore missing %}
     </body>
