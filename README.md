@@ -15,8 +15,8 @@ The website includes a basic testing server (`test-app.py`).
 The package can be used as a blueprint, either at the root
 of a website or as part of a larger `Flask` app.
 
-Serving should be accomplished via a performant web
-+ WSGI server stack (e.g. `nginx` + `gunicorn`) but
+Serving should be accomplished via a performant web + WSGI
+server stack (e.g. `nginx` + `gunicorn`) but
 I'll leave that to you!
 
 The blueprint is a standard Python package and installation
