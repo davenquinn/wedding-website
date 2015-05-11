@@ -38,7 +38,8 @@ The website includes a basic testing server (`test-app.py`).
 In general, serving should be accomplished via a performant
 web + WSGI server stack (e.g. `nginx` + `gunicorn`), with
 specific  provisions for handling static files.
-[Tutorials][Flask-DigitalOcean] [abound][Flask-Heroku] on
+[Tutorials](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04)
+[abound](https://devcenter.heroku.com/articles/python-gunicorn) on
 how to make this happen.
 
 # Frontend development
@@ -53,5 +54,3 @@ The `Makefile` contains recipes for installing and using
 these tools: simply `make install` to bootstrap the tools
 (requires Ruby, Node.js and `npm`), and `make` to compile.
 
-[Flask-DigitalOcean] https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04
-[Flask-Heroku] https://devcenter.heroku.com/articles/python-gunicorn
