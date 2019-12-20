@@ -2,6 +2,7 @@
 
 from flask import Flask
 from wedding_website import wedding
+import os
 
 class TestConfig(object):
     """
@@ -31,14 +32,13 @@ class TestConfig(object):
     # for weird email issues).
     STORAGE_BASE = None
 
-app = Flask(__name__,
-    # Hack to ensure that static url path
-    # doesn't conflict with blueprint
-    # mounted at application root
-    static_url_path="/static")
+app = Flask(__name__)
 
 # Register the blueprint at root
 app.config.from_object(TestConfig)
+
+# We need a google maps key set now
+app.config['GOOGLE_MAPS_KEY'] = os.getenv('GOOGLE_MAPS_KEY')
 app.register_blueprint(wedding)
 
 if __name__ == "__main__":

@@ -1,4 +1,6 @@
 Flask
 Frozen-Flask
-flask_wtf
-flask_mail
+Flask-Mail
+Flask-WTF
+WTForms
+pathlib
