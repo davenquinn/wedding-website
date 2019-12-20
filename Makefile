@@ -15,3 +15,7 @@ install:
 	npm install -g browserify
 	npm install coffeeify
 	gem install compass susy breakpoint
+
+freeze:
+	pip install -r requirements.txt
+	python freeze.py

@@ -1,0 +1,4 @@
+Flask
+Frozen-Flask
+flask_wtf
+flask_mail

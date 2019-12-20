@@ -35,7 +35,7 @@ app = Flask(__name__,
     # Hack to ensure that static url path
     # doesn't conflict with blueprint
     # mounted at application root
-    static_url_path="/app-static")
+    static_url_path="/static")
 
 # Register the blueprint at root
 app.config.from_object(TestConfig)
