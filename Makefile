@@ -23,3 +23,6 @@ freeze:
 
 serve:
 	python -m http.server -d build
+
+deploy:
+	rclone copy --progress build davenquinn-spaces:davenquinn-wedding-website
