@@ -17,12 +17,15 @@ install:
 
 freeze:
 	pip install -r requirements.txt
+	rm -rf build
+	mkdir -p build
+	# This doesn't quite work without errors
 	-python freeze.py
-	rm -rf build/static
-	cp -r wedding_website/static build/static
+	rm -rf build/wedding/static
+	cp -r wedding_website/static build/wedding/static
 
 serve:
 	python -m http.server -d build
 
 deploy:
-	rclone copy --progress build davenquinn-spaces:davenquinn-wedding-website
+	rclone copy --progress build/wedding davenquinn-spaces:davenquinn-wedding-website

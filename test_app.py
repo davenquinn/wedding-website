@@ -39,7 +39,7 @@ app.config.from_object(TestConfig)
 
 # We need a google maps key set now
 app.config['GOOGLE_MAPS_KEY'] = os.getenv('GOOGLE_MAPS_KEY')
-app.register_blueprint(wedding)
+app.register_blueprint(wedding, url_prefix='/wedding')
 
 if __name__ == "__main__":
     app.run(debug=True)
