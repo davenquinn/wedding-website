@@ -7,10 +7,10 @@
         <title>Beth and Daven!</title>
         <meta name="description" content="">
         <meta id="view" name="viewport" content="width=device-width" />
-        <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700,400italic|Raleway:400,300,500' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Noticia+Text:400,700,400italic|Raleway:400,300,500' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{{url_for('wedding.static',filename='wedding.css')}}">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?{% if config.GOOGLE_MAPS_KEY -%}
+        <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?{% if config.GOOGLE_MAPS_KEY -%}
            key={{ config.GOOGLE_MAPS_KEY }}&{% endif %}sensor=false"></script>
     </head>
     <body class="{% block body_class %}{{body_class}}{% endblock %}">
@@ -30,9 +30,9 @@
                         <span class=location>Cary, North Carolina</span>
                     </h2>
                     <ul id="nav">
-                      {{ nav_link(".story", "Story") }}
-                      {{ nav_link(".details","Details") }}
-                      {{ nav_link(".rsvp","RSVP") }}
+                      {{ nav_link("wedding.story", "Story") }}
+                      {{ nav_link("wedding.details","Details") }}
+                      {{ nav_link("wedding.rsvp","RSVP") }}
                     </ul>
                 </header>
                 <div id="content">

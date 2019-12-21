@@ -12,11 +12,11 @@ def index():
 
 @wedding.route('/details/')
 def details():
-    return render_template('wedding/details.html')
+    return render_template('wedding/details.html', active='.details')
 
 @wedding.route('/story/')
 def story():
-    return render_template('wedding/story.html')
+    return render_template('wedding/story.html', active='.story')
 
 @wedding.route('/rsvp/', methods=['GET', 'POST'])
 def rsvp():
@@ -33,6 +33,6 @@ def rsvp():
                  {0}.""".format(request.form["email"])
                 flash(msg,"success")
                 return render_template('wedding/rsvp_form.html')
-        return render_template('wedding/rsvp_form.html', form=form)
+        return render_template('wedding/rsvp_form.html', form=form, active='.rsvp')
     else:
-        return render_template('wedding/rsvp.html', form=form)
+        return render_template('wedding/rsvp.html', form=form, active='.rsvp')
