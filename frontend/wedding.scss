@@ -377,6 +377,10 @@ img {
     }
 }
 
+button img {
+    border: inherit;
+}
+
 @mixin floated($n){
     @include breakpoint($medium) {
         @include span($n of 12);
